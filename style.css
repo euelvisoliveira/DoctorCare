@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Montserrat:wght@300;400;500;700;900&family=Roboto&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
+
+* {
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  font-family: DM Sans;
+  background: #dce9e2;
+
+  --primary-color: #00856f;
+  --headline: #212529;
+  --paragraph: #495057;
+}
+
+body {
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+header {
+  width: 37.5rem;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 4.1rem;
+}
+
+h4 {
+  font-size: 0.875rem;
+  color: var(--primary-color);
+  margin-bottom: 1.6rem;
+}
+
+h1 {
+  font-size: 3.4rem;
+  color: var(--headline);
+  line-height: 130%;
+
+  margin-bottom: 2.4rem;
+}
+
+p {
+  font-size: 1, 8rem;
+  line-height: 150%;
+  font-weight: 400;
+  color: var(--paragraph);
+
+  margin-bottom: 3.2rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5rem;
+  background: unset;
+  background-color: var(--primary-color);
+  transition: 0.5s all ease;
+  margin-bottom: 6rem;
+
+  text-transform: uppercase;
+  color: #ffff;
+  height: 6.2rem;
+  width: 26.3rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+
+  margin-right: auto;
+  margin-left: auto;
+}
