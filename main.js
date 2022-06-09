@@ -1,8 +1,24 @@
+window.addEventListener('scroll', onScroll)
+
+onScroll()
 function onScroll() {
+  showNavOnScrollO()
+  showBackTopScroll()
+}
+
+function showNavOnScrollO() {
   if (scrollY > 0) {
     navegar.classList.add('scroll')
   } else {
     navegar.classList.remove('scroll')
+  }
+}
+
+function showBackTopScroll() {
+  if (scrollY > 300) {
+    backTop.classList.add('show')
+  } else {
+    backTop.classList.remove('show')
   }
 }
 

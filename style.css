@@ -22,6 +22,8 @@
 
   --brad-beige: #fffaf1;
 
+  --brande-dark: #00453a;
+
   --nav-heigth: 7.2rem;
 }
 
@@ -42,6 +44,7 @@ body {
   overflow: overlay; /* serve para sobrepor o scroll(deixar por cima) pois quando adicionamos o scroll por algum motivo ele e somado o tamanho das coisas na pagina*/
 }
 .wrapper {
+  /* esse e responsavel por criar o padrao de espaco e alimento... na pagina */
   width: 37.5rem;
   margin-inline: auto; /* alinhamento da margin automatico*/
   padding-inline: 2.4rem;
@@ -94,6 +97,42 @@ section .content p {
   line-height: 150%;
 
   color: var(--paragraph);
+}
+
+.button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5rem;
+  background: unset;
+  background-color: var(--primary-color);
+  margin-bottom: 6rem;
+
+  text-transform: uppercase;
+  color: #ffff;
+  padding: 1.6rem 3.2rem;
+  width: fit-content; /* server para adpatar ao conteudo*/
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: var(--brande-dark);
+  transition: background 200ms;
+}
+
+.social-links {
+  color: #ffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
 }
 
 /*=============== NAVIGATION ==================*/
@@ -191,7 +230,7 @@ body.menu-expanded .menu {
   text-decoration: none;
 }
 
-.menu .buttom {
+.menu .button {
   background: #ffff;
   border-radius: 40rem;
   font-weight: 700;
@@ -208,12 +247,11 @@ body.menu-expanded .menu {
   margin-bottom: 8rem;
 }
 
-.social-links {
+.menu .button:hover {
+  background-color: var(--primary-color);
   color: #ffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3.2rem;
+
+  filter: brightness(1.3); /* esse daqui serve para colocar o contrate brilho, colocar ele borrado sombra e muitas coisas*/
 }
 
 ul i {
@@ -255,6 +293,10 @@ body.menu-expanded button path {
   z-index: -1; /* serve para colocar no fundo*/
 }
 
+#home .button {
+  margin-inline: auto;
+}
+
 #home p {
   font-size: 1, 8rem;
   line-height: 150%;
@@ -262,30 +304,6 @@ body.menu-expanded button path {
   color: var(--paragraph);
 
   margin-bottom: 3.2rem;
-}
-
-#home button {
-  cursor: pointer;
-  border: none;
-  border-radius: 5rem;
-  background: unset;
-  background-color: var(--primary-color);
-  margin-bottom: 6rem;
-
-  text-transform: uppercase;
-  color: #ffff;
-  height: 6.2rem;
-  width: 26.3rem;
-  font-size: 1.4rem;
-  font-weight: 700;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.6rem;
-
-  margin-right: auto; /* serve para fazer o aliamento*/
-  margin-left: auto; /* serve para fazer o aliamento*/
 }
 
 #home img {
@@ -363,4 +381,83 @@ body.menu-expanded button path {
 #about .content p {
   margin-top: 2.4rem;
   margin-bottom: 6rem;
+}
+
+/*=============== CONTACT ==================*/
+
+#contact {
+  text-align: left;
+}
+
+#contact header {
+  margin-bottom: 3.2rem;
+}
+
+#contact ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  margin-bottom: 3.2rem;
+}
+
+#contact ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/*=============== FOOTER ==================*/
+
+footer {
+  background-color: var(--primary-color);
+  padding-block: 6rem;
+
+  text-align: left;
+
+  color: #ffff;
+}
+
+footer .logo {
+  /* a tag ela tem um displau-inline entao nao aceita margin-top, margin-botton, width e heigth*/
+  display: inline-block; /* transformei a tag a em display: inline-block pois ele mantem a sua propriedade (em linha) as que eu nao mudar */
+  margin-bottom: 2.4rem;
+}
+
+footer .logo svg {
+  width: 23.6rem;
+  height: 3.1rem;
+}
+
+footer .logo path {
+  fill: #ffff;
+}
+
+footer p {
+  color: var(--brad-beige);
+  line-height: 2;
+  margin-bottom: 3.2rem;
+}
+
+footer .social-links {
+  justify-content: flex-start;
+}
+
+/*=============== BACK TO TOP ==================*/
+
+#backTop {
+  position: fixed;
+  bottom: 1rem;
+  right: 2.5rem;
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(100%);
+  transition: 500ms;
+}
+
+#backTop.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
