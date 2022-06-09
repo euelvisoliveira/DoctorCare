@@ -2,40 +2,85 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
 
+/*=========== GERAL ===============*/
+
 * {
-  margin: 0%;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 :root {
   font-size: 62.5%;
   font-family: DM Sans;
-  background: #dce9e2;
 
   --primary-color: #00856f;
   --headline: #212529;
   --paragraph: #495057;
+  --bran-ligth: #dce9e2;
+  --bg-ligth: #f7f9f9;
+
+  --brad-beige: #fffaf1;
+
+  --nav-heigth: 7.2rem;
+}
+
+html {
+  scroll-behavior: smooth; /* isso usamos para fazer a pagina pular para o services de uma forma suave */
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
 
 body {
   font-size: 1.6rem;
   text-align: center;
-}
 
-header {
+  overflow: overlay; /* serve para sobrepor o scroll(deixar por cima) pois quando adicionamos o scroll por algum motivo ele e somado o tamanho das coisas na pagina*/
+}
+.wrapper {
   width: 37.5rem;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 4.1rem;
+  margin-inline: auto; /* alinhamento da margin automatico*/
+  padding-inline: 2.4rem;
 }
 
-h4 {
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+section {
+  padding-block: 10rem;
+}
+
+section header h4 {
   font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 0.08rem;
   color: var(--primary-color);
+
+  text-transform: uppercase;
+
   margin-bottom: 1.6rem;
 }
 
-h1 {
+section header h2 {
+  font-size: 3rem;
+  line-height: 3.9rem;
+
+  color: var(--headline);
+
+  margin-bottom: 6rem;
+}
+
+section header h1 {
   font-size: 3.4rem;
   color: var(--headline);
   line-height: 130%;
@@ -43,7 +88,174 @@ h1 {
   margin-bottom: 2.4rem;
 }
 
-p {
+section .content p {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 150%;
+
+  color: var(--paragraph);
+}
+
+/*=============== NAVIGATION ==================*/
+
+nav {
+  display: flex;
+
+  height: var(--nav-heigth);
+
+  position: fixed;
+  top: 0;
+  width: 100vw;
+
+  z-index: 100;
+}
+
+nav .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav.scroll {
+  background: var(--primary-color);
+}
+
+nav.scroll .logo path {
+  fill: #ffff;
+}
+
+nav.scroll button path {
+  stroke: white;
+}
+
+nav button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/*=============== MENU ==================*/
+body.menu-expanded {
+  overflow: hidden; /* serve para tirar o trasbordamento*/
+}
+
+body.menu-expanded > :not(nav) {
+  /* esse esta pegando todos filhos dos primeiro nivel( > == primeiro nivel, * == todos) :not() essa e uma pseudo classe onde estamos usando para quem nao vai ser aplicado o codigo que esta abaixo*/
+  visibility: hidden;
+}
+
+.menu,
+.close-menu,
+body.menu-expanded .open-menu {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu {
+  transform: translateY(100%);
+}
+
+body.menu-expanded .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--primary-color);
+
+  width: 100vw;
+  height: 100vh;
+
+  padding-top: 5rem;
+
+  transition: transform 300ms;
+  transform: translateY(0);
+}
+
+.menu ul:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem; /* usado para dar o espacamento dos elementos que estao dentro da ul*/
+
+  margin-top: 6rem;
+  font-size: 2.4rem;
+  line-height: 3.1rem;
+}
+
+.menu ul li a {
+  color: #ffff;
+  text-decoration: none;
+}
+
+.menu .buttom {
+  background: #ffff;
+  border-radius: 40rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: var(--primary-color);
+  display: inline-block; /* usamos isso para aplicar a margin e altura e largura e fazendo automaticamente a quebra de linha e tirando a sobre posicao do elemento */
+  padding: 1.6rem 3.2rem;
+
+  margin-top: 4.8rem;
+  margin-bottom: 8rem;
+}
+
+.social-links {
+  color: #ffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+}
+
+ul i {
+  color: #ffff;
+}
+
+/* codifo para o logo aparecer na aba menu */
+
+body.menu-expanded .logo,
+body.menu-expanded button {
+  position: relative;
+  z-index: 100; /* responsavel por colocar as coisas para cima e para abaixo*/
+}
+
+body.menu-expanded .logo path {
+  fill: #ffff;
+}
+
+body.menu-expanded button path {
+  stroke: #ffff;
+}
+
+/*=============== HOME ==================*/
+
+#home {
+  padding-top: calc(4.1rem + var(--nav-heigth));
+}
+
+#home::before {
+  content: '';
+  width: 100%;
+  height: calc(108rem + var(--nav-heigth));
+  background-color: var(--bran-ligth);
+  display: block;
+
+  position: absolute; /* */
+  top: 0;
+  left: 0;
+  z-index: -1; /* serve para colocar no fundo*/
+}
+
+#home p {
   font-size: 1, 8rem;
   line-height: 150%;
   font-weight: 400;
@@ -52,13 +264,12 @@ p {
   margin-bottom: 3.2rem;
 }
 
-button {
+#home button {
   cursor: pointer;
   border: none;
   border-radius: 5rem;
   background: unset;
   background-color: var(--primary-color);
-  transition: 0.5s all ease;
   margin-bottom: 6rem;
 
   text-transform: uppercase;
@@ -73,6 +284,83 @@ button {
   justify-content: center;
   gap: 1.6rem;
 
-  margin-right: auto;
-  margin-left: auto;
+  margin-right: auto; /* serve para fazer o aliamento*/
+  margin-left: auto; /* serve para fazer o aliamento*/
+}
+
+#home img {
+  width: 26.4rem;
+  display: block;
+  margin-inline: auto;
+  object-position: 0 2rem;
+}
+
+#home .stats {
+  width: 32.7rem;
+
+  padding-block: 4rem; /* Esse (padding-block) usamos para substituir esses => padding-top: 4rem; padding-bottom: 4rem; */
+
+  margin-inline: auto; /* serve para fazer o aliamento substituindo o left e right*/
+
+  background: var(--brad-beige);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* para fazer aliamento do eixo principal */
+  gap: 6rem; /* serve para fazer a separacao dos elementos*/
+
+  border: 1px solid var(--bran-ligth);
+  border-radius: 0.6rem;
+}
+
+#home .stat h3 {
+  font-size: 4.8rem;
+  color: var(--headline);
+  line-height: 130%;
+  margin-bottom: 0.4rem;
+}
+
+#home .stat p {
+  margin: 0;
+  color: var(--primary-color);
+}
+
+/*=============== SERVICES ==================*/
+#services hearder h2 {
+  margin-bottom: 6rem;
+}
+
+#services .cards {
+  display: flex; /* usamos esse display flex para podemos mexer nos filhos*/
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+#services .card {
+  padding: 2.4rem;
+  text-align: left;
+
+  background: #ffff;
+
+  border: 1px solid var(--bran-ligth);
+  border-radius: 0.6rem;
+}
+
+.card h3 {
+  margin-block: 1.6rem;
+}
+
+/*=============== ABOUT ==================*/
+#about {
+  text-align: left;
+  background-color: var(--brad-beige);
+}
+
+#about header h2 {
+  margin-bottom: 2.4rem;
+}
+
+#about .content p {
+  margin-top: 2.4rem;
+  margin-bottom: 6rem;
 }
