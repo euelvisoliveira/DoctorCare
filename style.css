@@ -178,10 +178,10 @@ body.menu-expanded {
   overflow: hidden; /* serve para tirar o trasbordamento*/
 }
 
-body.menu-expanded > :not(nav) {
-  /* esse esta pegando todos filhos dos primeiro nivel( > == primeiro nivel, * == todos) :not() essa e uma pseudo classe onde estamos usando para quem nao vai ser aplicado o codigo que esta abaixo*/
+/*body.menu-expanded > :not(nav) {
+  /* esse esta pegando todos filhos dos primeiro nivel( > == primeiro nivel, * == todos) :not() essa e uma pseudo classe onde estamos usando para quem nao vai ser aplicado o codigo que esta abaixo
   visibility: hidden;
-}
+} */
 
 .menu,
 .close-menu,
@@ -251,7 +251,9 @@ body.menu-expanded .menu {
   background-color: var(--primary-color);
   color: #ffff;
 
-  filter: brightness(1.3); /* esse daqui serve para colocar o contrate brilho, colocar ele borrado sombra e muitas coisas*/
+  filter: brightness(
+    1.3
+  ); /* esse daqui serve para colocar o contrate brilho, colocar ele borrado sombra e muitas coisas*/
 }
 
 ul i {
