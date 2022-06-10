@@ -14,15 +14,16 @@
   font-size: 62.5%;
   font-family: DM Sans;
 
-  --primary-color: #00856f;
-  --headline: #212529;
-  --paragraph: #495057;
-  --bran-ligth: #dce9e2;
-  --bg-ligth: #f7f9f9;
+  --hue: 290;
+  --primary-color: hsl(var(--hue), 100%, 26%);
+  --headline: hsl(210, 11%, 15%);
+  --paragraph: hsl(210, 9%, 31%);
+  --bran-ligth: hsl(var(--hue), 23%, 89%);
+  --bg-ligth: hsl(180, 14%, 97%);
 
-  --brad-beige: #fffaf1;
+  --brad-beige: hsl(39, 100%, 97%);
 
-  --brande-dark: #00453a;
+  --brande-dark: hsl(var(--hue), 100%, 14%);
 
   --nav-heigth: 7.2rem;
 }
@@ -135,6 +136,31 @@ section .content p {
   gap: 3.2rem;
 }
 
+/*================= CUSTOM COLORS=============*/
+
+#services .card circle {
+  fill: var(--bran-ligth);
+}
+
+#navegar .logo path[fill*='#00856F'],
+#backTop circle {
+  fill: var(--primary-color);
+}
+
+#navegar button.open-menu path[stroke*='#00856F'],
+#contact li path {
+  stroke: var(--primary-color);
+}
+
+body.menu-expanded #navegar .logo path,
+#navegar.scroll .logo path {
+  fill: #ffff;
+}
+
+#navegar.scroll button.open-menu path[stroke*='#00856F'] {
+  stroke: #ffff;
+}
+
 /*=============== NAVIGATION ==================*/
 
 nav {
@@ -157,14 +183,6 @@ nav .wrapper {
 
 nav.scroll {
   background: var(--primary-color);
-}
-
-nav.scroll .logo path {
-  fill: #ffff;
-}
-
-nav.scroll button path {
-  stroke: white;
 }
 
 nav button {
@@ -366,7 +384,7 @@ body.menu-expanded button path {
   border-radius: 0.6rem;
 }
 
-.card h3 {
+#services .card h3 {
   margin-block: 1.6rem;
 }
 
